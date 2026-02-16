@@ -8,7 +8,7 @@
       -name: Hello Ansible 
       debug:
         msg: "Hello Ansible"
----
+```
 
 #2
 
@@ -21,7 +21,7 @@
       copy: 
         content: "Created by Ansible"
         dest: /tmp/ansible-test.txt
----
+```
 
 #3
 
@@ -36,7 +36,7 @@
       -name: print varibales 
       debug:
         msg: "app name: {{ app_name }}. version: {{ app_version }}"
----
+```
 
 #4
 
@@ -58,7 +58,7 @@
       - name: print success 
         debug:
           msg: "Directory successfully created"
----
+```
 #5
 
 ```yaml
@@ -74,7 +74,7 @@
           - file1
           - file2
           - file3
----
+```
 #6
 
 ```yaml
@@ -92,7 +92,7 @@
         debug:
           msg: "prod"
         when: environment == "prod"
----
+```
 
 #7
 
@@ -111,7 +111,7 @@ Playbook (07_inventory_files.yml):
     - name: "return success"
       debug:
         msg: "inventory file created"
----
+```
 
 Run: "ansible-playbook -i inventory.ini 07_inventory_files.yml "
 
@@ -131,8 +131,79 @@ Run: "ansible-playbook -i inventory.ini 07_inventory_files.yml "
     - name: config_change
       debug:
         msg: "changes detected"
----
+```
 
 #9
+
+template.j2:
+```
+Appliation: {{ app_name }} 
+Version: {{ app_version }} 
+Environment: {{ env }}
+```
+
+Playbook (09_Jinja_template.yml)
+```yaml 
+---
+  - host: localHost 
+    connection: local
+    vars:
+      app_name: "template.js"
+      app_version: 2.0
+      env: production
+    tasks:
+      - name: Deply template 
+        template: 
+          src: template.j2
+          dest: 
+```
+
+#10
+
+```yml 
+---
+
+  - host: LocalHost
+    connection: local 
+    vars:
+      app_name: "example name"
+      app_version: "2.0"
+      env:
+      - dev
+      - prod
+      - other 
+      create_backup: true 
+    tasks:
+      - name: Create directory  
+        file: 
+          path: tmp/{{ app_name }}/{{ item }}
+          state: directory
+        loop: "{{ environments }}"
+      
+      - name: Create config files
+        copy:
+          content: "config files"
+          dest: tmp/{{ app_name }}/{{ item }}/config.txt
+        loop: "{{ environments }}"
+        notiy: config_creation
+
+      - name: Print summary 
+        debug:
+          msg: "{{ app_name }} version {{ app_version }} has been deployed to {{ environments | length }} environments."
+
+      - name: Create Backup
+        copy:
+          content: "backup created"
+          dest: tmp/{{ item }}/backup.txt
+        when: create_backup == true
+
+    handler:
+      - name: config_creation
+        debug:
+          msg: "all configurations have been deployed "
+
+
+      
+```
 
 

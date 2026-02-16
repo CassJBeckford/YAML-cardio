@@ -7,7 +7,9 @@ A hands-on collection of 20 exercises covering Ansible fundamentals through to i
 | File | Description |
 |------|-------------|
 | `ansible-exercises.md` | Exercise instructions and goals |
+| `ansible-python-exercises.md` | Python + Ansible integration exercises |
 | `solutions.md` | Complete solutions for all exercises |
+| `ansible_python_solutions.py` | Python solutions for all 20 Python exercises |
 | `solution_attempts.md` | Your working attempts |
 
 ## Topics Covered
@@ -51,6 +53,22 @@ A hands-on collection of 20 exercises covering Ansible fundamentals through to i
 | 18 | Ansible Lint | `ansible-lint`, FQCN, code quality |
 | 19 | Dynamic Inventory | Python/JSON inventory scripts |
 | 20 | Multi-Play Playbooks | Multiple plays, different host groups |
+
+## Python + Ansible Exercises
+
+The `ansible-python-exercises.md` file contains 20 exercises for automating Ansible with Python:
+
+| # | Topic | Key Concepts |
+|---|-------|-------------|
+| 1–5 | Parsing & Generation | YAML parsing, playbook generation, Jinja2, dynamic inventory |
+| 6–10 | Execution & Analysis | `ansible-runner`, facts collection, task counting, variable extraction |
+| 11–15 | Tooling | Role scaffolding, vault helpers, linting, report generation |
+| 16–20 | Advanced | Module docs, playbook merging, connection testing, full framework |
+
+**Required libraries:**
+```bash
+pip install pyyaml jinja2 ansible-runner click rich
+```
 
 ## Quick Reference
 
