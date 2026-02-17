@@ -26,6 +26,11 @@ def parse_inventory(filepath):
     pass
 ```
 
+**Learn more:** 
+- [PyYAML Documentation](https://pyyaml.org/wiki/PyYAMLDocumentation)
+- [Ansible Inventory Format](https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html)
+- [Python File I/O](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files)
+
 ---
 
 ## Exercise 2: Generate Playbook from Python
@@ -35,6 +40,11 @@ Write `02_generate_playbook.py` that:
 - Takes user input for: target hosts, task name, module to use
 - Generates a valid YAML playbook
 - Saves it to a `.yml` file
+
+**Learn more:** 
+- [PyYAML: Dumping YAML](https://pyyaml.org/wiki/PyYAMLDocumentation)
+- [Ansible Playbook Structure](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html)
+- [Python input() Function](https://docs.python.org/3/library/functions.html#input)
 
 ---
 
@@ -55,6 +65,11 @@ from jinja2 import Environment, FileSystemLoader
 # environment: {{ env }}
 ```
 
+**Learn more:** 
+- [Jinja2 Documentation](https://jinja.palletsprojects.com/en/3.1.x/)
+- [Jinja2 API](https://jinja.palletsprojects.com/en/3.1.x/api/)
+- [Ansible Templates](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_templating.html)
+
 ---
 
 ## Exercise 4: YAML Validator
@@ -65,6 +80,11 @@ Write `04_yaml_validator.py` that:
 - Checks for valid YAML syntax
 - Validates required Ansible keys (`hosts`, `tasks`)
 - Reports errors clearly
+
+**Learn more:** 
+- [PyYAML safe_load](https://pyyaml.org/wiki/PyYAMLDocumentation)
+- [Python Exception Handling](https://docs.python.org/3/tutorial/errors.html)
+- [Ansible Playbook Structure](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html)
 
 ---
 
@@ -95,6 +115,11 @@ def get_inventory():
 # Add argument parsing for --list and --host
 ```
 
+**Learn more:** 
+- [Dynamic Inventory](https://docs.ansible.com/ansible/latest/inventory_guide/intro_dynamic_inventory.html)
+- [Python argparse](https://docs.python.org/3/library/argparse.html)
+- [Python json Module](https://docs.python.org/3/library/json.html)
+
 ---
 
 ## Exercise 6: Run Ansible Playbook from Python
@@ -117,6 +142,10 @@ def run_playbook(playbook_path, inventory_path):
     print(f"Return code: {r.rc}")
 ```
 
+**Learn more:** 
+- [ansible-runner Documentation](https://ansible.readthedocs.io/projects/runner/en/stable/)
+- [ansible-runner Python API](https://ansible.readthedocs.io/projects/runner/en/stable/python_interface.html)
+
 ---
 
 ## Exercise 7: Host Facts Collector
@@ -126,6 +155,11 @@ Write `07_facts_collector.py` that:
 - Runs `ansible -m setup` against localhost
 - Parses the JSON output
 - Extracts and displays: OS, memory, CPU info
+
+**Learn more:** 
+- [Ansible Facts](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_vars_facts.html)
+- [Python subprocess Module](https://docs.python.org/3/library/subprocess.html)
+- [Setup Module](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/setup_module.html)
 
 ---
 
@@ -137,6 +171,11 @@ Write `08_inventory_diff.py` that:
 - Compares hosts and groups
 - Reports: added hosts, removed hosts, changed groups
 
+**Learn more:** 
+- [Python Sets](https://docs.python.org/3/tutorial/datastructures.html#sets)
+- [Ansible Inventory](https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html)
+- [PyYAML Documentation](https://pyyaml.org/wiki/PyYAMLDocumentation)
+
 ---
 
 ## Exercise 9: Playbook Task Counter
@@ -147,6 +186,11 @@ Write `09_task_counter.py` that:
 - Counts: total tasks, handlers, plays
 - Lists all modules used
 - Outputs a summary report
+
+**Learn more:** 
+- [PyYAML Documentation](https://pyyaml.org/wiki/PyYAMLDocumentation)
+- [Python Collections](https://docs.python.org/3/library/collections.html)
+- [Ansible Playbook Structure](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html)
 
 ---
 
@@ -169,6 +213,11 @@ def extract_variables(playbook_path):
     # Your code here
 ```
 
+**Learn more:** 
+- [Python Regular Expressions](https://docs.python.org/3/library/re.html)
+- [Ansible Variables](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html)
+- [regex101 (Testing Tool)](https://regex101.com/)
+
 ---
 
 ## Exercise 11: Role Scaffolder
@@ -190,6 +239,11 @@ Write `11_role_scaffold.py` that:
   ```
 - Adds placeholder content to YAML files
 
+**Learn more:** 
+- [Ansible Roles](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html)
+- [Python os.makedirs](https://docs.python.org/3/library/os.html#os.makedirs)
+- [Python pathlib](https://docs.python.org/3/library/pathlib.html)
+
 ---
 
 ## Exercise 12: Encrypted Vars Handler
@@ -209,6 +263,11 @@ def encrypt_file(filepath):
     # Use subprocess to run ansible-vault encrypt
 ```
 
+**Learn more:** 
+- [Ansible Vault](https://docs.ansible.com/ansible/latest/vault_guide/index.html)
+- [Python subprocess Module](https://docs.python.org/3/library/subprocess.html)
+- [Python getpass Module](https://docs.python.org/3/library/getpass.html)
+
 ---
 
 ## Exercise 13: Playbook Linter
@@ -220,6 +279,11 @@ Write `13_playbook_linter.py` that checks for:
 - Missing `become` for privileged operations
 - Hardcoded passwords in plain text
 
+**Learn more:** 
+- [ansible-lint](https://ansible.readthedocs.io/projects/lint/)
+- [Ansible Best Practices](https://docs.ansible.com/ansible/latest/tips_tricks/ansible_tips_tricks.html)
+- [Python Pattern Matching](https://docs.python.org/3/library/re.html)
+
 ---
 
 ## Exercise 14: Execution Report Generator
@@ -230,6 +294,11 @@ Write `14_report_generator.py` that:
 - Generates an HTML or Markdown report
 - Shows: passed/failed/skipped tasks per host
 - Includes timestamps and duration
+
+**Learn more:** 
+- [Ansible Callback Plugins](https://docs.ansible.com/ansible/latest/plugins/callback.html)
+- [Python json Module](https://docs.python.org/3/library/json.html)
+- [Python datetime Module](https://docs.python.org/3/library/datetime.html)
 
 ---
 
@@ -251,6 +320,11 @@ def match_hosts(inventory, pattern):
 # match_hosts(inv, "all:!db")  -> all except db hosts
 ```
 
+**Learn more:** 
+- [Ansible Patterns](https://docs.ansible.com/ansible/latest/inventory_guide/intro_patterns.html)
+- [Python fnmatch Module](https://docs.python.org/3/library/fnmatch.html)
+- [Python Set Operations](https://docs.python.org/3/library/stdtypes.html#set)
+
 ---
 
 ## Exercise 16: Module Documentation Parser
@@ -260,6 +334,11 @@ Write `16_module_docs.py` that:
 - Uses `ansible-doc -j <module>` to get module documentation
 - Parses the JSON output
 - Displays: description, parameters, examples
+
+**Learn more:** 
+- [ansible-doc Command](https://docs.ansible.com/ansible/latest/cli/ansible-doc.html)
+- [Python subprocess Module](https://docs.python.org/3/library/subprocess.html)
+- [Python json Module](https://docs.python.org/3/library/json.html)
 
 ---
 
@@ -272,6 +351,11 @@ Write `17_playbook_merger.py` that:
 - Handles duplicate variable names
 - Outputs the combined playbook
 
+**Learn more:** 
+- [PyYAML Documentation](https://pyyaml.org/wiki/PyYAMLDocumentation)
+- [Python Deep Copy](https://docs.python.org/3/library/copy.html)
+- [Ansible Playbook Structure](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html)
+
 ---
 
 ## Exercise 18: Connection Tester
@@ -283,6 +367,11 @@ Write `18_connection_tester.py` that:
 - Uses `ansible -m ping`
 - Reports reachable/unreachable hosts
 
+**Learn more:** 
+- [Ansible Ping Module](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/ping_module.html)
+- [Python subprocess Module](https://docs.python.org/3/library/subprocess.html)
+- [Ansible Connection Methods](https://docs.ansible.com/ansible/latest/plugins/connection.html)
+
 ---
 
 ## Exercise 19: Config File Generator
@@ -292,6 +381,11 @@ Write `19_config_generator.py` that:
 - Accepts configuration options as arguments or prompts
 - Generates a valid `ansible.cfg` file
 - Includes: inventory path, remote user, SSH settings
+
+**Learn more:** 
+- [Ansible Configuration File](https://docs.ansible.com/ansible/latest/reference_appendices/config.html)
+- [Python configparser Module](https://docs.python.org/3/library/configparser.html)
+- [Python argparse](https://docs.python.org/3/library/argparse.html)
 
 ---
 
@@ -313,6 +407,12 @@ Build a CLI that can:
 - Generate playbooks from templates
 - Run playbooks with custom options
 - Generate execution reports
+
+**Learn more:** 
+- [Click Documentation](https://click.palletsprojects.com/)
+- [Python Packages](https://docs.python.org/3/tutorial/modules.html#packages)
+- [ansible-runner API](https://ansible.readthedocs.io/projects/runner/en/stable/python_interface.html)
+- [Rich Library](https://rich.readthedocs.io/en/stable/)
 
 ---
 

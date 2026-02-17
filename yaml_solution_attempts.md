@@ -201,9 +201,96 @@ Playbook (09_Jinja_template.yml)
       - name: config_creation
         debug:
           msg: "all configurations have been deployed "
-
-
       
 ```
 
+#11
 
+'ansible-galaxy init roles/webserver'
+
+(
+  webserver/ 
+    task/ 
+      main.yaml
+    default/
+      main.yaml
+)
+
+role/webserver/task/main.yml:
+```yaml 
+---
+      - name: Create web root directory
+        file: 
+          path: /var/www/html
+          state: directory 
+
+      - name: deploy html folder
+        copy: 
+          content: "<p>test<p>"
+          dir: /var/www/html/index.html
+```
+
+role/webserver/default/main.yml:
+```yaml
+---
+  server_name: "test_server"
+```
+
+Playbook (11_roles.yml)
+```yaml 
+---
+  - host: localHost
+    connection: local
+    roles: 
+      - webserver
+```
+
+#12
+
+```yaml
+---
+  - host: localHost
+    connection: local
+    task:
+
+    - name:
+      command: hostname 
+      register: host_info 
+
+    - name:
+      debug:
+        msg: "message: {{ host_info.stdout }}"
+```
+
+#13
+
+tasks/install.yml
+```yaml
+---
+  - name: "Install"
+    debug:
+      msg: "Installing…"
+```
+
+tasks/configure.yml
+```yaml
+---
+  - name: "configure"
+    debug:
+      msg: "Configuring..."
+```
+
+Playbook (13_include_and_import)
+```yaml
+---
+  - hosts: localHost
+    connection: local 
+    tasks:
+      - name: "Include install"
+        include_tasks:
+            file: tasks/install.yml
+
+      - name: "Include config"
+        include_tasks:
+            file: tasks/configure.yml
+```

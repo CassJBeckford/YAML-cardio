@@ -18,6 +18,8 @@ Create a file called `01-hello.yml` that:
 Use `hosts: localhost` and `connection: local`
 </details>
 
+**Learn more:** [Ansible Playbooks Introduction](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html)
+
 ---
 
 ## Exercise 2: Create a File
@@ -27,6 +29,8 @@ Create `02-create-file.yml` that:
 - Creates a file at `/tmp/ansible-test.txt` (or `C:\temp\ansible-test.txt` on Windows)
 - Sets the content to "Created by Ansible"
 - Uses the `copy` module with `content` parameter
+
+**Learn more:** [Copy Module Documentation](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/copy_module.html)
 
 ---
 
@@ -38,6 +42,8 @@ Create `03-variables.yml` that:
 - Defines a variable called `app_version` with value "2.0"
 - Uses `debug` to print both variables
 
+**Learn more:** [Using Variables](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html)
+
 ---
 
 ## Exercise 4: Multiple Tasks
@@ -48,6 +54,8 @@ Create `04-multiple-tasks.yml` that:
 - Creates a file inside that directory
 - Prints a success message
 
+**Learn more:** [Tasks in Playbooks](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html#tasks-list)
+
 ---
 
 ## Exercise 5: Loops
@@ -56,6 +64,8 @@ Create `04-multiple-tasks.yml` that:
 Create `05-loops.yml` that:
 - Creates 3 files named `file1.txt`, `file2.txt`, `file3.txt`
 - Uses `loop` to avoid repeating code
+
+**Learn more:** [Loops Documentation](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_loops.html)
 
 ---
 
@@ -66,6 +76,8 @@ Create `06-conditionals.yml` that:
 - Sets a variable `environment` to either "dev" or "prod"
 - Prints different messages based on the environment value
 - Uses `when` condition
+
+**Learn more:** [Conditionals Documentation](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_conditionals.html)
 
 ---
 
@@ -116,6 +128,8 @@ Create a playbook that:
 - Has handlers
 - Uses loops
 
+**Learn more:** [Playbook Best Practices](https://docs.ansible.com/ansible/latest/tips_tricks/ansible_tips_tricks.html)
+
 ---
 
 ## Exercise 11: Roles
@@ -138,6 +152,8 @@ Create `12-register.yml` that:
 - Registers the result to a variable called `host_info`
 - Prints `host_info.stdout` with `debug`
 
+**Learn more:** [Registered Variables](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html#registering-variables)
+
 ---
 
 ## Exercise 13: Include & Import
@@ -148,7 +164,7 @@ Create three files:
 2. `tasks/configure.yml` – a task list that prints "Configuring…"
 3. `13-include.yml` – includes both task files with `include_tasks` or `import_tasks`
 
-**Learn more:** [Including and Importing](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_includes.html)
+**Learn more:** [Including and Importing](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse.html)
 
 ---
 
@@ -174,6 +190,8 @@ Create `15-facts.yml` that:
 
 Try running with `gather_facts: false` and observe the difference.
 
+**Learn more:** [Discovering Variables: Facts](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_vars_facts.html)
+
 ---
 
 ## Exercise 16: Vault Basics
@@ -198,6 +216,8 @@ Create `17-tags.yml` with three tasks:
 
 Run only one tag: `ansible-playbook 17-tags.yml --tags deploy`
 
+**Learn more:** [Tags Documentation](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_tags.html)
+
 ---
 
 ## Exercise 18: Ansible Lint
@@ -214,6 +234,8 @@ ansible-lint 10-full.yml
 ```
 
 Fix at least two warnings or errors it reports.
+
+**Learn more:** [Ansible Lint Documentation](https://ansible.readthedocs.io/projects/lint/)
 
 ---
 
